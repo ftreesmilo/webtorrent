@@ -272,11 +272,7 @@ class WebTorrent extends EventEmitter {
 
     const onTorrent = torrent => {
       const tasks = [
-        cb => {
-          // when a filesystem path is specified or the store is preloaded, files are already in the FS store
-          if (isFilePath || opts.preloadedStore) return cb()
-          torrent.load(streams, cb)
-        }
+
       ]
       if (this.dht) {
         tasks.push(cb => {
